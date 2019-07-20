@@ -126,6 +126,8 @@ install:
 
 script:
 # Run automated tests
+  - ./bin/graph-hw --json -d > /dev/null
+  - if [ -d /proc ] ; then ./bin/mount-tree ; fi
   - ./run_tests.sh
 # Install the files after removing conflicting local files
   - rm -f ~/.bash_profile ~/.bash_logout ~/.bashrc ~/.gitconfig ~/.gnupg/gpg.conf ~/.profile ~/.zshrc
